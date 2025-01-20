@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[TOKEN_NAME] - The Ultimate Meme Experience</title>
+    <style>
+        /* Reset and Normalize */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700&display=swap');
+
+        /* Color Scheme */
+        :root {
+            --primary-color: #FF6600;
+            --secondary-color: #734D26;
+            --accent-color: #2ECC71;
+            --digital-color: #00C8FF;
+            --text-color: #333333;
+            --background-color: #F7F7F7;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--digital-color);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes swayAnimation {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeIn 1s ease;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 1rem;
+        }
+
+        nav ul li a {
+            color: var(--background-color);
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--digital-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./farm-scene.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--background-color);
+            animation: fadeIn 1s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content button {
+            padding: 1rem 2rem;
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-content button:hover {
+            background-color: var(--digital-color);
+        }
+
+        /* Animated Elements */
+        .grass {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background-image: url('./grass.png');
+            background-repeat: repeat-x;
+            background-size: auto 100%;
+            animation: swayAnimation 3s infinite alternate ease-in-out;
+        }
+
+        .fireflies {
+            position: absolute;
+            top: 20%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .firefly {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--digital-color);
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: firefly 5s infinite;
+        }
+
+        @keyframes firefly {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translate(50vw, 50vh) scale(0.5);
+                opacity: 0.2;
+            }
+            100% {
+                transform: translate(100vw, 0) scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1 1 50%;
+            padding-right: 2rem;
+        }
+
+        .about-image {
+            flex: 1 1 40%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Tokenomics Section */
+        .tokenomics {
+            background-color: var(--background-color);
+        }
+
+        .tokenomics-charts {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .chart {
+            flex: 1 1 300px;
+            max-width: 400px;
+            margin: 2rem;
+            padding: 2rem;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .chart h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .chart canvas {
+            max-width: 100%;
+        }
+
+        /* Roadmap Section */
+        .roadmap {
+            background-color: var(--secondary-color);
+            color: var(--background-color);
+        }
+
+        .roadmap-timeline {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .roadmap-item {
+            flex: 1 1 300px;
+            max-width: 400px;
+            margin: 2rem;
+            padding: 2rem;
+            background-color: var(--primary-color);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+        }
+
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -30px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: var(--digital-color);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .roadmap-item:first-child::before {
+            display: none;
+        }
+
+        .roadmap-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .roadmap-item p {
+            margin-bottom: 1rem;
+        }
+
+        .roadmap-item .date {
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Community Section */
+        .community {
+            background-color: var(--background-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            margin: 1rem;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--digital-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--background-color);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .copiable-text {
+            font-family: monospace;
+            background-color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .copiable-text:hover {
+            background-color: var(--digital-color);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            .tokenomics-charts {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .roadmap-timeline {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .roadmap-item::before {
+                top: -30px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="./logo.png" alt="[TOKEN_NAME] Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Tokenomics</a></li>
+                <li><a href="#">Roadmap</a></li>
+                <li><a href="#">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="grass"></div>
+            <div class="fireflies">
+                <div class="firefly"></div>
+                <div class="firefly"></div>
+                <div class="firefly"></div>
+                <!-- Add more fireflies as needed -->
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1>[TOKEN_NAME]</h1>
+            <p>Your portal to the most exciting meme-powered cryptocurrency.</p>
+            <button>Join the Revolution</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <h2>What is [TOKEN_NAME]?</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>[MEME_DESCRIPTION.meme_description]</p>
+            </div>
+            <div class="about-image">
+                <img src="./logo.png" alt="About [TOKEN_NAME]">
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section class="tokenomics">
+        <h2>Tokenomics</h2>
+        <div class="tokenomics-charts">
+            <div class="chart">
+                <h3>Total Supply</h3>
+                <canvas id="totalSupplyChart"></canvas>
+            </div>
+            <div class="chart">
+                <h3>Burned Tokens</h3>
+                <canvas id="burnedTokensChart"></canvas>
+            </div>
+            <div class="chart">
+                <h3>Circulating Supply</h3>
+                <canvas id="circulatingSupplyChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap">
+        <h2>The [TOKEN_NAME] Journey - Our Roadmap</h2>
+        <div class="roadmap-timeline">
+            <div class="roadmap-item">
+                <h3>[ROADMAP_PHASE_1_TITLE]</h3>
+                <p>[ROADMAP_PHASE_1_DESCRIPTION]</p>
+                <p class="date">[DATE]</p>
+            </div>
+            <div class="roadmap-item">
+                <h3>[ROADMAP_PHASE_2_TITLE]</h3>
+                <p>[ROADMAP_PHASE_2_DESCRIPTION]</p>
+                <p class="date">[DATE]</p>
+            </div>
+            <!-- Add more roadmap items as needed -->
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community">
+        <h2>Connect with the [TOKEN_NAME] Community</h2>
+        <div class="social-links">
+            <a href="[YOUTUBE_LINK]" class="social-link">YouTube</a>
+            <a href="[TIKTOK_LINK]" class="social-link">TikTok</a>
+            <a href="[INSTAGRAM_LINK]" class="social-link">Instagram</a>
+            <a href="[FACEBOOK_LINK]" class="social-link">Facebook</a>
+            <a href="[TWITTER_LINK]" class="social-link">Twitter</a>
+            <a href="[DEX
